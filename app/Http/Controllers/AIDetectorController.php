@@ -5,13 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use App\Models\DetectionHistory;
-use App\Services\AIDetectorService;
+use App\Services\AIDetectorServiceNew;
 
 class AIDetectorController extends Controller
 {
     protected $detectorService;
 
-    public function __construct(AIDetectorService $detectorService)
+    public function __construct(AIDetectorServiceNew $detectorService)
     {
         $this->detectorService = $detectorService;
     }
@@ -41,7 +41,6 @@ class AIDetectorController extends Controller
         //         'details' => json_encode($result['details']),
         //     ]);
         // }
-
         return view('detector.result', [
             'content' => $content,
             'result' => $result,

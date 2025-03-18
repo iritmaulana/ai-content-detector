@@ -38,6 +38,13 @@
                     {{ $result['classification'] }}
                 </span>
             </p>
+
+            <p class="text-lg font-medium mt-2 text-gray-700">
+                Confidence Score:
+                <span class="font-bold">
+                    {{ $result['details']['confidence_score'] }}%
+                </span>
+            </p>
         </div>
 
         {{-- Detail Analisis --}}
@@ -46,10 +53,26 @@
             <ul class="mt-2 space-y-1 text-gray-800">
                 <li><strong>Content Length:</strong> {{ $result['details']['content_length'] }} characters</li>
                 <li><strong>Word Count:</strong> {{ $result['details']['word_count'] }} words</li>
-                <li><strong>Statistical Analysis:</strong> {{ count($result['details']['statistical_analysis']) }}
-                    parameters analyzed</li>
+                {{-- <li><strong>Statistical Analysis:</strong> {{ count($result['details']['statistical_analysis']) }}
+                    parameters analyzed</li> --}}
                 {{-- <li><strong>API Analysis:</strong> {{ count($result['details']['api_analysis']) }} sources checked</li> --}}
             </ul>
+        </div>
+
+        {{-- Detailed Justification --}}
+        <div class="mb-6 p-4 rounded-lg border shadow-md bg-gray-50">
+            <h2 class="text-lg font-semibold text-gray-700">Detailed Justification:</h2>
+            <div class="mt-2 text-gray-800 whitespace-pre-line">
+                {{ $result['details']['detailed_justification'] }}
+            </div>
+        </div>
+
+        {{-- Top Indicators --}}
+        <div class="mb-6 p-4 rounded-lg border shadow-md bg-gray-50">
+            <h2 class="text-lg font-semibold text-gray-700">Top 3 Most Compelling Indicators:</h2>
+            <div class="mt-2 text-gray-800 whitespace-pre-line">
+                {{ $result['details']['top_indicators'] }}
+            </div>
         </div>
 
         {{-- Tombol Kembali --}}
